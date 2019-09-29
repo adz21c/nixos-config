@@ -27,8 +27,7 @@ in {
         pkgs.dosbox
         pkgs.retroarch
       ];
-    mkIf cfg.retro {
-      nixpkgs.config.retroarch = {
+      nixpkgs.config.retroarch = mkIf cfg.retro {
         enable4do = true;
         enableBeetlePCEFast = true;
         enableBeetlePSX = true;
@@ -58,6 +57,5 @@ in {
         enableVbaNext = true;
         enableVbaM = true;
       };
-    };
   };
 }
