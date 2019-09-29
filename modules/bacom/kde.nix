@@ -1,11 +1,11 @@
 { lib, config, pkgs, ... }:
-with lib:
+with lib;
 let
   cfg = config.bacom.kde;
 in {
   options.bacom.kde = {
     enable = mkEnableOption "KDE UI";
-    desktop = mkOption {
+      desktop = mkOption {
       type = types.boolean;
       default = false;
     };

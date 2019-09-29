@@ -1,5 +1,5 @@
 { lib, config, pkgs, ... }:
-with lib:
+with lib;
 let
   cfg = config.bacom.games;
 in {
