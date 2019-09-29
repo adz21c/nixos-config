@@ -1,14 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./home-base.nix
-      ./kde-base.nix
-      ./dualshock4.nix
-      ./steam-controller.nix
-      ./flashplayer.nix
-    ];
+  imports = [ ./home-base.nix ];
 
   nixpkgs.config.allowUnfree = true;
 

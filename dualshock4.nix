@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  boot.kernelModules = [ "uinput" ];
+  boot.kernelModules = boot.kernelModules ++ [ "uinput" ];
 
   nixpkgs.config.packageOverrides = pkgs: {
     dualshock4-udev-rules = pkgs.writeTextFile {
