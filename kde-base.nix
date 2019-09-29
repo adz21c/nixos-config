@@ -46,14 +46,6 @@
     pkgs.kdeFrameworks.kcodecs
     pkgs.kdeFrameworks.kmediaplayer
 
-    # PIM
-    pkgs.kdeApplications.kcontacts
-    pkgs.kdeApplications.akonadi
-    pkgs.kdeApplications.akonadi-contacts
-    pkgs.kdeApplications.akonadi-mime
-    pkgs.kdeApplications.kwalletmanager
-    pkgs.kdeFrameworks.kpeople
-
     # Localization
     pkgs.aspellDicts.en
     pkgs.aspellDicts.pt_BR
@@ -65,14 +57,11 @@
 #    pkgs.kdeApplications.l10n.pt_BR.qt5
 
     # Utilities
-    pkgs.kdeApplications.kgpg
     pkgs.kdeApplications.khelpcenter
     pkgs.kdeApplications.konsole
-    pkgs.kdeApplications.print-manager
     pkgs.plasma5.kde-cli-tools
     pkgs.plasma5.khotkeys
     pkgs.plasma5.kinfocenter
-    pkgs.kdeApplications.spectacle
 
     # File Management & Search
     pkgs.plasma5.milou
@@ -113,9 +102,6 @@
     #pkgs.plasma5.breeze-qt4
     pkgs.plasma5.breeze-qt5
     pkgs.plasma5.breeze-grub
-
-    # Themes - oxygen
-    pkgs.plasma5.oxygen
   ];
 
   # Enable the KDE Desktop Environment
