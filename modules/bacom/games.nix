@@ -6,30 +6,28 @@ in {
   options.bacom.games = {
     enable = mkEnableOption "Gaming";
     steam = mkOption {
-	  type = types.boolean;
-	  default = true;
-	};
+      type = types.boolean;
+      default = true;
+    };
     retro = mkOption {
-	  type = types.boolean;
-	  default = true;
-	};
+      type = types.boolean;
+      default = true;
+    };
   };
   
   config = mkIf cfg.enable {
     hardware.steam-hardware.enable = true;
   
-    mkIf cfg.steam {
-	  environment.systemPackages = with pkgs; [
+    environment.systemPackages = []
+	  ++ mkIf cfg.steam [
         pkgs.steam
         pkgs.wine
-      ];
-	};
-	
-    mkIf cfg.retro {
-      environment.systemPackages = with pkgs; [
+      ]
+	  ++ mkIf cfg.retro [
         pkgs.dosbox
         pkgs.retroarch
       ];
+	mkIf cfg.retro {
       nixpkgs.config.retroarch = {
         enable4do = true;
         enableBeetlePCEFast = true;
@@ -60,6 +58,6 @@ in {
         enableVbaNext = true;
         enableVbaM = true;
       };
-	};
+    };
   };
 }
