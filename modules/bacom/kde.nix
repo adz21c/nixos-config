@@ -6,9 +6,9 @@ in {
   options.bacom.kde = {
     enable = mkEnableOption "KDE UI";
     desktop = mkOption {
-	  type = types.boolean;
-	  default = false;
-	};
+    type = types.boolean;
+    default = false;
+  };
   };
   
   config = mkIf cfg.enable {
@@ -115,30 +115,28 @@ in {
       pkgs.plasma5.breeze-qt5
       pkgs.plasma5.breeze-grub
     ]
-	  ++ mkIf cfg.desktop {
-	       environment.systemPackages = with pkgs; [
-             ##############
-             # Applications
-             ##############
-           
-             # Maps
-             pkgs.kdeApplications.marble
-           
-             ################
-             # Infrastructure
-             ################
-           
-             # PIM
-             pkgs.kdeApplications.kcontacts
-             pkgs.kdeApplications.akonadi
-             pkgs.kdeApplications.akonadi-contacts
-             pkgs.kdeApplications.akonadi-mime
-             pkgs.kdeApplications.kwalletmanager
-             pkgs.kdeFrameworks.kpeople
-           
-             # Themes - oxygen
-             pkgs.plasma5.oxygen
-           ];
-	     };
+    ++ mkIf cfg.desktop [
+      ##############
+      # Applications
+      ##############
+    
+      # Maps
+      pkgs.kdeApplications.marble
+    
+      ################
+      # Infrastructure
+      ################
+    
+      # PIM
+      pkgs.kdeApplications.kcontacts
+      pkgs.kdeApplications.akonadi
+      pkgs.kdeApplications.akonadi-contacts
+      pkgs.kdeApplications.akonadi-mime
+      pkgs.kdeApplications.kwalletmanager
+      pkgs.kdeFrameworks.kpeople
+    
+      # Themes - oxygen
+      pkgs.plasma5.oxygen
+    ];
   };
 }
