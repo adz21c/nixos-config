@@ -19,15 +19,15 @@ in {
     hardware.steam-hardware.enable = true;
   
     environment.systemPackages = []
-	  ++ mkIf cfg.steam [
+      ++ mkIf cfg.steam [
         pkgs.steam
         pkgs.wine
       ]
-	  ++ mkIf cfg.retro [
+      ++ mkIf cfg.retro [
         pkgs.dosbox
         pkgs.retroarch
       ];
-	mkIf cfg.retro {
+    mkIf cfg.retro {
       nixpkgs.config.retroarch = {
         enable4do = true;
         enableBeetlePCEFast = true;
