@@ -114,29 +114,29 @@ in {
       pkgs.breeze-icons
       pkgs.plasma5.breeze-qt5
       pkgs.plasma5.breeze-grub
-    ];
-    #++ mkIf cfg.desktop [
+    ]
+    ++ (if cfg.desktop then [
       ##############
       # Applications
       ##############
     
       # Maps
-#      pkgs.kdeApplications.marble
+      pkgs.kdeApplications.marble
     
       ################
       # Infrastructure
       ################
     
       # PIM
-#      pkgs.kdeApplications.kcontacts
-#      pkgs.kdeApplications.akonadi
-#      pkgs.kdeApplications.akonadi-contacts
-#      pkgs.kdeApplications.akonadi-mime
- #     pkgs.kdeApplications.kwalletmanager
-  #    pkgs.kdeFrameworks.kpeople
+      pkgs.kdeApplications.kcontacts
+      pkgs.kdeApplications.akonadi
+      pkgs.kdeApplications.akonadi-contacts
+      pkgs.kdeApplications.akonadi-mime
+      pkgs.kdeApplications.kwalletmanager
+      pkgs.kdeFrameworks.kpeople
     
       # Themes - oxygen
-   #   pkgs.plasma5.oxygen
-    #];
+      pkgs.plasma5.oxygen
+    ] else []);
   };
 }
