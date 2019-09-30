@@ -6,7 +6,7 @@ in {
   options.bacom.kde = {
     enable = mkEnableOption "KDE UI";
       desktop = mkOption {
-      type = types.boolean;
+      type = types.bool;
       default = false;
     };
   };

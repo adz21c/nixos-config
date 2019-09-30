@@ -16,7 +16,7 @@ in {
     i18n = {
       consoleKeyMap = "uk";
       defaultLocale = "en_GB.UTF-8";
-      supportedLocals = [ "en_GB.UTF-8/UTF-8" "pt_BR.UTF-8/UTF-8" ]; 
+      supportedLocales = [ "en_GB.UTF-8/UTF-8" "pt_BR.UTF-8/UTF-8" ]; 
     };
     
     # Set your time zone.
@@ -46,38 +46,36 @@ in {
       ];
     };
   
-    mkIf cfg.desktop {
-      # Enable the X11 windowing system.
-      services.xserver = {
-        enable = true;
-        layout = "gb";
-      };
+    # Enable the X11 windowing system.
+    services.xserver = mkIf cfg.desktop {
+      enable = true;
+      layout = "gb";
+    };
     
-      environment.systemPackages = with pkgs; [
-        ##############
-        # Applications
-        ##############
+    environment.systemPackages = (if cfg.desktop then [
+      ##############
+      # Applications
+      ##############
+  
+      # Web Browser
+      pkgs.chromium
+      pkgs.firefoxWrapper
+      pkgs.flashplayer
+  
+      # Compression
+      pkgs.p7zip
+  
+      # Text editors
+      pkgs.kdeApplications.kate
+  
+      # Video editing and playback
+      pkgs.vlc
+    ] else []);
     
-        # Web Browser
-        pkgs.chromium
-        pkgs.firefoxWrapper
-        pkgs.flashplayer
-    
-        # Compression
-        pkgs.p7zip
-    
-        # Text editors
-        pkgs.kdeApplications.kate
-    
-        # Video editing and playback
-        pkgs.vlc
-      ];
-    
-      services.samba = {
-        enable = true;
-        enableNmbd = true;
-        enableWinbindd = true;
-      };
+    services.samba = mkIf cfg.desktop {
+      enable = true;
+      enableNmbd = true;
+      enableWinbindd = true;
     };
   };
 }
