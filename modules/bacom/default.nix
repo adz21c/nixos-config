@@ -5,10 +5,10 @@ let
 in {
   options.bacom = {
     enable = mkEnableOption "Bacom";
-	desktop = mkOption {
-	  type = types.bool;
-	  default = false;
-	};
+    desktop = mkOption {
+      type = types.bool;
+      default = false;
+    };
   };
   
   config = mkIf cfg.enable {
@@ -16,7 +16,7 @@ in {
     i18n = {
       consoleKeyMap = "uk";
       defaultLocale = "en_GB.UTF-8";
-	  supportedLocals = [ "en_GB.UTF-8/UTF-8" "pt_BR.UTF-8/UTF-8" ]; 
+      supportedLocals = [ "en_GB.UTF-8/UTF-8" "pt_BR.UTF-8/UTF-8" ]; 
     };
     
     # Set your time zone.
@@ -45,21 +45,21 @@ in {
         unifont
       ];
     };
-	
-	mkIf cfg.desktop {
+  
+    mkIf cfg.desktop {
       # Enable the X11 windowing system.
       services.xserver = {
         enable = true;
         layout = "gb";
       };
-	  
-	  environment.systemPackages = with pkgs; [
+    
+      environment.systemPackages = with pkgs; [
         ##############
         # Applications
         ##############
     
         # Web Browser
-		pkgs.chromium
+        pkgs.chromium
         pkgs.firefoxWrapper
         pkgs.flashplayer
     
@@ -72,12 +72,12 @@ in {
         # Video editing and playback
         pkgs.vlc
       ];
-	  
-	  services.samba = {
-	    enable = true;
-		enableNmbd = true;
-		enableWinbindd = true;
-	  };
-	};
+    
+      services.samba = {
+        enable = true;
+        enableNmbd = true;
+        enableWinbindd = true;
+      };
+    };
   };
 }
