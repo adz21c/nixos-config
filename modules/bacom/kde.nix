@@ -13,6 +13,7 @@ in {
   
   config = mkIf cfg.enable {
     services.xserver.desktopManager.plasma5.enable = true;
+	services.xserver.desktopManager.plasma5.enableQt4Support = true;
   
     environment.systemPackages = [
       ##############
