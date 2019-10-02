@@ -16,6 +16,8 @@ in {
   };
   
   config = mkIf cfg.enable {
+    users.groups.games = {};
+	
     hardware.steam-hardware.enable = true;
   
     environment.systemPackages = [ ]
