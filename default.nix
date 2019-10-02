@@ -1,11 +1,7 @@
-{ system ? builtins.currentSystem }:
+{ pkgs, ... }:
 
-let
-  pkgs = import <nixpkgs> { inherit system; };
-  
-  callPackage = pkgs.lib.callPackageWith (pkgs // self);
-
-  self = {
-    jellyfin = callPackage pkgs/servers/jellyfin { };
+{
+  nixpkgs.config.packageOverrides = pkgs: rec {
+    jellyfin = pkgs.callPackage pkgs/servers/jellyfin { };
   };
-  in self
+}

@@ -35,7 +35,8 @@ in
         Group = cfg.group;
         StateDirectory = "jellyfin";
         CacheDirectory = "jellyfin";
-        ExecStart = "${pkgs.jellyfin}/bin/jellyfin --datadir '/var/lib/${StateDirectory}' --cachedir '/var/cache/${CacheDirectory}'";
+        ExecStart = "${pkgs.jellyfin}/bin/jellyfin --datadir 
+'/var/lib/${StateDirectory}' --cachedir '/var/cache/${CacheDirectory}'";
         Restart = "on-failure";
       };
     };

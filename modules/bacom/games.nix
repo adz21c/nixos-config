@@ -55,7 +55,7 @@ in {
     hardware.steam-hardware.enable = true;
 	
 	# Dualshock 4 rules
-	boot.kernelModules = boot.kernelModules ++ [ "uinput" ];
+	#boot.kernelModules = boot.kernelModules ++ [ "uinput" ];
 
     nixpkgs.config.packageOverrides = pkgs: {
       dualshock4-udev-rules = pkgs.writeTextFile {
@@ -80,6 +80,6 @@ in {
       };
     };
 
-    services.udev.packages = services.udev.packages ++ [ pkgs.dualshock4-udev-rules ];
+    #services.udev.packages = services.udev.packages ++ [ pkgs.dualshock4-udev-rules ];
   };
 }
