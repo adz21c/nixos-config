@@ -12,6 +12,8 @@ in {
   };
   
   config = mkIf cfg.enable {
+    boot.loader.systemd-boot.enable = true;
+
     # Select internationalisation properties.
     i18n = {
       consoleKeyMap = "uk";
